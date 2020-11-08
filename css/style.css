@@ -12,7 +12,12 @@ html, body {
     background-color: rgb(51,57,64);
     color: rgb(236,236,236);
     padding: 1rem;
-    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 8vh;
 }
 
 .header__title {
@@ -22,9 +27,6 @@ html, body {
 
 .header__search {
     display: inline;
-    position: absolute;
-    right: 2rem;
-    margin: -0.55rem 0;
 }
 
 .search__input {
@@ -62,7 +64,6 @@ main {
     flex: 20%;
     height: 100vh;
     width: 17vw;
-    margin-top: -0.5rem;
 }
 
 .nav__ul li {
@@ -140,9 +141,13 @@ main {
 
 .card__bottom {
     padding: 1rem 1.5rem;
-    position: relative;
     border-radius: 0 0 .25rem .25rem;
     transition: background-color .3s;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .main__card a {
@@ -151,14 +156,10 @@ main {
     font-size: 0.9rem;
 }
 
-.main__card i {
-    position: absolute;
-    right: 1rem;
-} 
-
 .main__card--blue .card__top {
     background-color: rgb(0,123,255);
     border: solid rgb(0,123,230);
+    /*border: solid rgb(0, 0, 0, 0.05);*/
     border-width: 4px 4px 2px 4px;
 }
 
