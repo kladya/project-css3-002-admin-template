@@ -1,11 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
 * {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
-html, body {
+html {
+    font-family: 'Roboto', sans-serif;
+}
+    
+body {
     margin: 0;
     padding: 0;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 .header--dark {
@@ -17,16 +28,18 @@ html, body {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    height: 8vh;
+    height: 3.5rem;
 }
 
 .header__title {
-    display: inline;
-    font-size: 1.25rem;  
+    display: inline; /* v. flex-start */
+    font-size: 1.25rem; 
 }
 
 .header__search {
-    display: inline;
+    display: inline; /* inline v. inline-flex v. flex-end;
+                        flexnél nem lesz szóköz az input és btn elem között, inline-nál igen */
+    /* margin-left: auto; -teljesen kitolja jobbra */
 }
 
 .search__input {
@@ -50,26 +63,31 @@ html, body {
     padding: 0.375rem 0.75rem;
     border: 3px solid rgb(0,123,255);
     border-radius: 0 4px 4px 0;
-    text-align: left;
+    /* border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px; */
     cursor: pointer;
+    outline: none;
 }
 
 main {
     display: flex;
     margin-top: -1rem;
+
+    /*flex-direction: row;
+    height: 100%;*/
 }
 
 .main__nav {
     background-color: rgb(33,37,41);
     flex: 20%;
     height: 100vh;
-    width: 17vw;
+    width: 15vw;
 }
 
 .nav__ul li {
     list-style: none;
     margin-left: -3rem;
-    padding: 1.4rem;
+    padding: 1.1rem;
     color: rgb(122, 128, 136);
     position: relative;
 }
@@ -80,16 +98,18 @@ main {
     font-size: 0.75rem;
 }
 
-.nav__ul li i, .nav__ul li span {
+.nav__ul li a {
+    color: rgb(122, 128, 136);
+    text-decoration: none;
     cursor: pointer; 
 }
 
-.fa-tachometer {
+.nav__ul .dashboard a {
     color: rgb(236,236,236);
 }
 
 .nav__ul li .fa-angle-right {
-    font-weight: bold;
+    font-weight: 900;
     position: absolute;
     right: 1rem;
 }
@@ -107,6 +127,9 @@ main {
 .content {
     padding: 2rem;
     flex: 80%;
+
+    /*flex-basis: 100%;
+    padding: 0 2rem;*/
 }
 
 .content h1 {
@@ -118,12 +141,14 @@ main {
     border-radius: .25rem;
     padding: 1rem 1.5rem;
     color:  rgb(122, 128, 136);
-    margin-top: -0.5rem;
+    margin-top: -1rem;
 }
 
 .main__cards {
     margin: 1rem -1rem;
     display: flex;
+
+    /*flex-direction: row;*/
 }
 
 .main__card {
@@ -131,12 +156,26 @@ main {
     cursor: pointer;
     flex: 25%;
     padding: 1rem; 
+
+    /*flex-basis: 100%; -mind egyforma széles lesz
+    margin: 1rem;*/
 }
+
+/*.main__card:first-child {
+    margin-left: 0;
+}
+
+.main__card:last-child {
+    margin-right: 0;
+}*/
 
 .card__top {
     padding: 1rem 1.5rem;
     border-radius: .25rem .25rem 0 0;
     transition: background-color .3s;
+
+    /*border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;*/
 }
 
 .card__bottom {
@@ -148,7 +187,14 @@ main {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+
+    /*border-bottom-left-radius: .25rem;
+    border-bottom-right-radius: .25rem;*/
 }
+
+/*.card__bottom .fa {
+    margin-left: auto;  -jobbra dobja
+}*/
 
 .main__card a {
     text-decoration: none;
@@ -159,7 +205,7 @@ main {
 .main__card--blue .card__top {
     background-color: rgb(0,123,255);
     border: solid rgb(0,123,230);
-    /*border: solid rgb(0, 0, 0, 0.05);*/
+    /*border: solid rgba(0, 0, 0, 0.05);*/
     border-width: 4px 4px 2px 4px;
 }
 
